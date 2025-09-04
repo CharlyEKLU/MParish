@@ -32,7 +32,6 @@ const TABLET_VIEW = 'screen and (min-width: 769px) and (max-width: 1024px)';
     NgScrollbarModule,
     TablerIconsModule,
     HeaderComponent,
-    AppTopstripComponent
   ],
   templateUrl: './full.component.html',
   styleUrls: [],
@@ -70,6 +69,11 @@ export class FullComponent implements OnInit {
         // SidenavOpened must be reset true when layout changes
         this.options.sidenavOpened = true;
         this.isMobileScreen = state.breakpoints[MOBILE_VIEW];
+        console.log('[FullComponent] Breakpoint change:', {
+          MOBILE_VIEW: state.breakpoints[MOBILE_VIEW],
+          TABLET_VIEW: state.breakpoints[TABLET_VIEW],
+          isOver: this.isMobileScreen,
+        });
         if (this.options.sidenavCollapsed == false) {
           this.options.sidenavCollapsed = state.breakpoints[TABLET_VIEW];
         }
@@ -95,6 +99,7 @@ export class FullComponent implements OnInit {
   toggleCollapsed() {
     this.isContentWidthFixed = false;
     this.options.sidenavCollapsed = !this.options.sidenavCollapsed;
+    console.log('[FullComponent] toggleCollapsed ->', this.options.sidenavCollapsed ? 'collapsed' : 'expanded');
     this.resetCollapsedState();
   }
 
@@ -104,10 +109,12 @@ export class FullComponent implements OnInit {
 
   onSidenavClosedStart() {
     this.isContentWidthFixed = false;
+    console.log('[FullComponent] sidenav closed start');
   }
 
   onSidenavOpenedChange(isOpened: boolean) {
     this.isCollapsedWidthFixed = !this.isOver;
     this.options.sidenavOpened = isOpened;
+    console.log('[FullComponent] sidenav opened change ->', isOpened);
   }
 }

@@ -1,50 +1,121 @@
-<mat-toolbar class="topbar gap-8">
-  <!-- Mobile Menu -->
-  @if(!showToggle) {
-  <button mat-icon-button (click)="toggleMobileNav.emit()" class="d-flex justify-content-center">
-    <i class="iconify icon-20 d-flex" data-icon="solar:hamburger-menu-line-duotone"></i>
+<mat-toolbar class="mat-toolbar topbar gap-5 mat-toolbar-single-row">
+  <button
+    *ngIf="showToggle"
+    mat-icon-button
+    color="inherit"
+    class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base d-flex justify-content-center mat-inherit ng-star-inserted"
+    (click)="onHamburgerClick()"
+  >
+    <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple">
+    </span>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--solar icon-24 d-flex" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="solar:hamburger-menu-line-duotone">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+        <path d="M20 7H4">
+        </path>
+        <path d="M20 12H4" opacity=".5">
+        </path>
+        <path d="M20 17H4">
+        </path>
+      </g>
+    </svg>
+    <span class="mat-focus-indicator">
+    </span>
+    <span class="mat-mdc-button-touch-target">
+    </span>
   </button>
-  }
-  <!-- --------------------------------------------------------------- -->
-  <!-- Notification Dropdown -->
-  <!-- --------------------------------------------------------------- -->
-  <button mat-icon-button aria-label="Notifications" [matMenuTriggerFor]="menu" class="d-flex align-items-center justify-content-center">
-    <div matBadge="2" matBadgeSize="small" matBadgeOverlap="false" class="demo-section">
-      <i class="iconify icon-20 d-flex" data-icon="solar:bell-line-duotone"></i>
-    </div>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
-
+  <div class="d-none d-lg-flex" bis_skin_checked="1">
+    <button mat-icon-button="" aria-label="links" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-mdc-menu-trigger d-flex align-items-center justify-content-center mat-unthemed" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="" aria-haspopup="menu" aria-expanded="false">
+      <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--solar icon-20 d-flex" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="solar:widget-3-line-duotone">
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2.5 6.5a4 4 0 1 1 8 0a4 4 0 0 1-8 0Zm11 11a4 4 0 1 1 8 0a4 4 0 0 1-8 0Z" opacity=".5"></path>
+          <path d="M21.5 6.5a4 4 0 1 0-8 0a4 4 0 0 0 8 0Zm-11 11a4 4 0 1 0-8 0a4 4 0 0 0 8 0Z"></path>
+        </g>
+      </svg>
+      <span class="mat-focus-indicator"></span><span class="mat-mdc-button-touch-target"></span>
+      <span class="mat-ripple mat-mdc-button-ripple"></span>
+    </button>
+    <mat-menu class=""></mat-menu>
+  </div>
   <span class="flex-1-auto"></span>
-
-  <a href="https://www.wrappixel.com/templates/materialm-material-angular-dashboard-template/?ref=376#demos" target="_blank" mat-flat-button>Check Pro Template</a>
-
-  <!-- --------------------------------------------------------------- -->
-  <!-- profile Dropdown -->
-  <!-- --------------------------------------------------------------- -->
-  <button mat-icon-button extended [matMenuTriggerFor]="profilemenu" aria-label="Notifications"
-    class="d-flex align-items-center justify-content-center profile-btn-dd">
-    <img src="/assets/images/profile/user-1.jpg" class="rounded-circle object-cover icon-35 profile-dd" width="35" />
-  </button>
-  <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"><i data-icon="solar:shield-user-line-duotone"
-          class="iconify icon-22"></i></mat-icon>My Profile
-    </button>
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"><i data-icon="solar:user-id-line-duotone"
-          class="iconify icon-22"></i></mat-icon>My Account
-    </button>
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"><i data-icon="solar:checklist-minimalistic-line-duotone"
-          class="iconify icon-22"></i> </mat-icon>My Task
-    </button>
-
-    <div class="p-x-12 m-t-12">
-      <a [routerLink]="['/authentication/login']" mat-stroked-button class="w-100">Logout</a>
-    </div>
-  </mat-menu>
-</mat-toolbar>
+  <button mat-icon-button="" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base d-flex d-lg-none justify-content-center align-items-center mat-unthemed" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--solar icon-20 d-flex" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="solar:menu-dots-outline">
+              <path fill="currentColor" fill-rule="evenodd" d="M2.25 12a2.75 2.75 0 1 1 5.5 0a2.75 2.75 0 0 1-5.5 0M5 10.75a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5M9.25 12a2.75 2.75 0 1 1 5.5 0a2.75 2.75 0 0 1-5.5 0M12 10.75a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5m7-1.5a2.75 2.75 0 1 0 0 5.5a2.75 2.75 0 0 0 0-5.5M17.75 12a1.25 1.25 0 1 1 2.5 0a1.25 1.25 0 0 1-2.5 0" clip-rule="evenodd"></path>
+            </svg>
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+          </button>
+          <button mat-icon-button="" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base d-flex align-items-center justify-content-center mat-unthemed" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--solar icon-20 d-flex" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="solar:magnifer-outline">
+              <path fill="currentColor" fill-rule="evenodd" d="M11.5 2.75a8.75 8.75 0 1 0 0 17.5a8.75 8.75 0 0 0 0-17.5M1.25 11.5c0-5.66 4.59-10.25 10.25-10.25S21.75 5.84 21.75 11.5c0 2.56-.939 4.902-2.491 6.698l3.271 3.272a.75.75 0 1 1-1.06 1.06l-3.272-3.271A10.2 10.2 0 0 1 11.5 21.75c-5.66 0-10.25-4.59-10.25-10.25" clip-rule="evenodd"></path>
+            </svg>
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+          </button>
+          <button mat-icon-button aria-label="Toggle light/dark" (click)="toggleTheme()" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base d-flex justify-content-center mat-unthemed ng-star-inserted" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <ng-container *ngIf="theme.isDark$ | async; else moonIcon">
+              <!-- Sun icon when dark theme is active (tap to go light) -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-20 d-flex" width="1em" height="1em" aria-hidden="true" role="img">
+                <path fill="currentColor" d="M6.76 4.84l-1.8-1.79l-1.41 1.41l1.79 1.8l1.42-1.42m10.45-1.79l-1.8 1.79l1.42 1.42l1.79-1.8l-1.41-1.41M12 4h-1v3h1V4m0 13h-1v3h1v-3m8-5h-3v1h3v-1M7 12H4v1h3v-1m9.66 6.15l1.79 1.8l1.41-1.41l-1.8-1.79l-1.4 1.4M6.76 19.16l-1.42 1.42l-1.79-1.8l1.41-1.41l1.8 1.79M12 6a6 6 0 100 12A6 6 0 0012 6z"/>
+              </svg>
+            </ng-container>
+            <ng-template #moonIcon>
+              <!-- Moon icon when light theme is active (tap to go dark) -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-20 d-flex" width="1em" height="1em" aria-hidden="true" role="img">
+                <path fill="currentColor" d="M12.74 2a1 1 0 0 1 .93 1.36a8 8 0 0 0 9 10.64a1 1 0 0 1 1.14 1.33A10 10 0 1 1 11.4 1.6a1 1 0 0 1 1.34.4Z"/>
+              </svg>
+            </ng-template>
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+            <span class="mat-ripple mat-mdc-button-ripple"></span>
+          </button>
+          <button mat-icon-button="" aria-label="inbox" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-mdc-menu-trigger d-flex align-items-center justify-content-center m-r-5 mat-unthemed" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="" aria-haspopup="menu" aria-expanded="false">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--solar icon-20 d-flex" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="solar:inbox-line-line-duotone">
+              <g fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z">
+                </path>
+                <path stroke-linecap="round" d="M2 13h3.16c.905 0 1.358 0 1.756.183s.692.527 1.281 1.214l.606.706c.589.687.883 1.031 1.281 1.214s.85.183 1.756.183h.32c.905 0 1.358 0 1.756-.183s.692-.527 1.281-1.214l.606-.706c.589-.687.883-1.031 1.281-1.214S17.934 13 18.84 13H22M8 7h8m-6 3.5h4" opacity=".5">
+                </path>
+              </g>
+            </svg>
+            <div class="notification bg-primary text-white rounded-circle f-s-10" bis_skin_checked="1"> 3 </div>
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+            <span class="mat-ripple mat-mdc-button-ripple"></span>
+          </button>
+          <mat-menu class="">
+          </mat-menu>
+          <button mat-icon-button="" aria-label="Notifications" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-mdc-menu-trigger d-flex align-items-center justify-content-center m-r-5 mat-unthemed" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="" aria-haspopup="menu" aria-expanded="false">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--solar icon-20 d-flex" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="solar:bell-line-duotone">
+              <g fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18.75 9.71v-.705C18.75 5.136 15.726 2 12 2S5.25 5.136 5.25 9.005v.705a4.4 4.4 0 0 1-.692 2.375L3.45 13.81c-1.011 1.575-.239 3.716 1.52 4.214a25.8 25.8 0 0 0 14.06 0c1.759-.498 2.531-2.639 1.52-4.213l-1.108-1.725a4.4 4.4 0 0 1-.693-2.375Z"></path>
+                <path stroke-linecap="round" d="M7.5 19c.655 1.748 2.422 3 4.5 3s3.845-1.252 4.5-3" opacity=".5"></path>
+              </g>
+            </svg>
+            <div class="notification bg-error text-white rounded-circle f-s-10" bis_skin_checked="1">5</div>
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+          </button>
+          <mat-menu class=""></mat-menu>
+          <button mat-icon-button="" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-mdc-menu-trigger mat-unthemed" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="" aria-haspopup="menu" aria-expanded="false">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <img class="rounded-circle object-cover icon-20" src="/assets/images/flag/icon-flag-en.svg">
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+            <span class="mat-ripple mat-mdc-button-ripple"></span>
+          </button>
+          <mat-menu class="">
+          </mat-menu>
+          <button mat-icon-button="" aria-label="Profile" class="mdc-icon-button mat-mdc-icon-button mat-mdc-button-base mat-mdc-menu-trigger mat-unthemed" mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered="" aria-haspopup="menu" aria-expanded="false">
+            <span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+            <img src="/assets/images/profile/user-1.jpg" width="35" class="rounded-circle profile-img icon-35">
+            <span class="mat-focus-indicator"></span>
+            <span class="mat-mdc-button-touch-target"></span>
+          </button>
+          <mat-menu class=""></mat-menu>
+        </mat-toolbar>

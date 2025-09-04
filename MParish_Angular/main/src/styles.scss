@@ -2,3 +2,194 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Layout constants */
+:root {
+  --header-height: 40px; /* keep in sync with $header-height */
+}
+
+/* Floating settings button (Customizer) */
+.customizerBtn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2000; /* keep above content and sidenav-content */
+
+  button[mat-fab] {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 599px) {
+  .customizerBtn {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+/* ----------------------------------------
+   Global Theme Variables and Surfaces (Material aligned)
+   The ThemeService toggles 'light-theme' / 'dark-theme' on <html>
+----------------------------------------- */
+
+html.light-theme {
+  color-scheme: light;
+  --mat-sys-background: #f8fafd;
+  --mat-sys-surface-bright: #f2f6fa;
+  --mat-sys-surface: #ffffff;
+  --mat-sys-surface-container: #ffffff;
+  --mat-sys-surface-container-low: #ffffff;
+  --mat-sys-surface-container-lowest: #111c2d99;
+  --mat-sys-on-background: #111c2d;
+  --mat-sys-outline: #e4ebf0;
+  --mat-sys-outline-variant: #e4ebf0;
+  --mat-card-elevated-container-color: #ffffff;
+  --mat-card-outlined-container-color: #ffffff;
+}
+
+html.dark-theme {
+  color-scheme: dark;
+  --mat-sys-background: #121316;
+  --mat-sys-surface-bright: #38393c;
+  --mat-sys-surface: #171b20;
+  --mat-sys-surface-container: #1f2022;
+  --mat-sys-surface-container-low: #1a1b1f;
+  --mat-sys-surface-container-lowest: #0d0e11;
+  --mat-sys-on-background: #e3e2e6;
+  --mat-sys-outline: #8e9099;
+  --mat-sys-outline-variant: #44474e;
+  --mat-card-elevated-container-color: #1b1f24;
+  --mat-card-outlined-container-color: #1b1f24;
+}
+
+/* Apply variables to common surfaces */
+body {
+  font-family: Inter, sans-serif;
+  line-height: 1.334rem;
+  overflow-x: hidden;
+  background: var(--mat-sys-background);
+  color: var(--mat-sys-on-background);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+/* Baseline element/text colors (inspired by provided snippet) */
+html .mdc-list-item__primary-text,
+html .mat-drawer-container,
+html .mat-drawer,
+html .text-body {
+  color: var(--mat-sys-on-background);
+}
+
+/* Sidenav container baseline (inspired) */
+.mat-drawer-container {
+  position: relative;
+  z-index: 1;
+  color: var(--mat-sidenav-content-text-color, var(--mat-sys-on-background));
+  background-color: var(--mat-sidenav-content-background-color, var(--mat-sys-background));
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+}
+
+/* Toolbar */
+.mat-toolbar.topbar {
+  background: var(--mat-sys-surface) !important;
+  color: var(--mat-sys-on-background) !important;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100; /* above content & sidenav-content */
+}
+
+/* Sidenav surface */
+.mat-drawer.sidebarNav, .mat-sidenav.customizerNav {
+  background: var(--mat-sys-surface) !important;
+  color: var(--mat-sys-on-background) !important;
+  border-right: 1px solid var(--mat-sys-outline-variant);
+}
+
+/* Content wrapper common background */
+.contentWrapper, .pageWrapper, .body-wrapper {
+  background: var(--mat-sys-background);
+  color: var(--mat-sys-on-background);
+}
+
+/* Ensure content starts below fixed header */
+.mat-sidenav-content, .contentWrapper, .body-wrapper {
+  padding-top: var(--header-height);
+}
+
+/* Cards and common Material containers */
+.mat-mdc-card, .mat-card, .mat-mdc-menu-panel, .mat-mdc-select-panel {
+  background: var(--mat-card-elevated-container-color, var(--mat-sys-surface)) !important;
+  color: var(--mat-sys-on-background) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Lists, dividers, borders */
+.mdc-list, .mat-mdc-list, .mat-mdc-table, .mat-mdc-form-field {
+  color: var(--mat-sys-on-background);
+}
+.mat-divider, .mdc-list-divider {
+  border-color: var(--mat-sys-outline-variant) !important;
+}
+
+/* Accent theme (blue) variables - apply when container has .blue_theme or when html has it */
+html.blue_theme, .blue_theme {
+  --mat-sys-primary: rgb(0, 161, 255);
+  --mat-sys-primary-fixed-dim: rgba(0, 161, 255, 0.15);
+  --mat-sys-secondary: rgb(137, 101, 229);
+  --mat-sys-secondary-fixed-dim: rgba(137, 101, 229, 0.15);
+}
+
+/* Material Table Theming */
+.mat-mdc-table,
+.mdc-data-table__table {
+  background: var(--mat-table-background-color, var(--mat-card-elevated-container-color, var(--mat-sys-surface))) !important;
+  color: var(--mat-sys-on-background);
+}
+
+.mat-mdc-header-row,
+.mdc-data-table__header-row {
+  background: var(--mat-sys-surface) !important;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+.mat-mdc-header-cell,
+.mdc-data-table__header-cell {
+  color: var(--mat-sys-on-background) !important;
+}
+
+.mat-mdc-row,
+.mdc-data-table__row {
+  background: var(--mat-sys-surface-container-low) !important;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+.mat-mdc-row:hover,
+.mdc-data-table__row:hover {
+  background: var(--mat-sys-surface-container-low) !important; /* same as default: no hover color change */
+}
+
+/* Data table wrapper (MDC host) */
+.mdc-data-table {
+  background: var(--mat-table-background-color, var(--mat-card-elevated-container-color, var(--mat-sys-surface))) !important;
+  color: var(--mat-sys-on-background);
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: var(--mat-sys-corner-medium, 12px);
+}
+
+/* Cells inherit surface */
+.mdc-data-table__header-cell,
+.mdc-data-table__cell {
+  background: transparent;
+  color: var(--mat-sys-on-background);
+}
+
+/* Sticky elements */
+.mat-mdc-table-sticky,
+.mdc-data-table__header-row.mdc-data-table__header-row--sticky {
+  background: var(--mat-sys-surface) !important;
+}
